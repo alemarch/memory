@@ -65,7 +65,14 @@ for (var j = 0; j < vettoreGioco.length; j++) {
             //primo click
             stato = 1
             cartaGirata = this
+            cartaGirata.cartaGiaGirata = true
         } else {
+            
+            //controllo stessa carta
+            if (this.cartaGiaGirata) {
+                console.log("stessa carta")
+                return false;
+            }
             
             let secondaCarta = this
             
@@ -78,6 +85,8 @@ for (var j = 0; j < vettoreGioco.length; j++) {
                     cartaGirata.style.background = ""
                     secondaCarta.style.color = "transparent"
                     secondaCarta.style.background = ""
+                    cartaGirata.cartaGiaGirata = false
+                    secondaCarta.cartaGiaGirata = false
                 }, 3000)
             } else {
                 cartaGirata.onclick = null
